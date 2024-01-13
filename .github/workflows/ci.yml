@@ -24,9 +24,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Use Node.js 18"
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e #v1: v2.x available
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: "Install CLI tools"
@@ -56,9 +56,9 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Use Node.js 18"
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e #v1: v2.x available
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: "Install CLI tools"
@@ -76,10 +76,10 @@ jobs:
     steps:
       - name: "Check out Git repository"
         if: github.repository == 'juice-shop/juice-shop' || github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '16'
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Use Node.js ${{ matrix.node-version }}"
         if: github.repository == 'juice-shop/juice-shop' || github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '16'
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e #v1: v2.x available
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: "Install CLI tools"
@@ -101,7 +101,7 @@ jobs:
           cp build/reports/coverage/server-tests/lcov.info server-lcov.info
       - name: "Upload unit test coverage data"
         if: github.repository == 'juice-shop/juice-shop' && github.event_name == 'push' && matrix.os == 'ubuntu-latest' && matrix.node-version == '16'
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 #v3: v3.0.0 available
+        uses: actions/upload-artifact@v4
         with:
           name: unit-test-lcov
           path: |
@@ -116,10 +116,10 @@ jobs:
     steps:
       - name: "Check out Git repository"
         if: github.repository == 'juice-shop/juice-shop' || github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '16'
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Use Node.js ${{ matrix.node-version }}"
         if: github.repository == 'juice-shop/juice-shop' || github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '16'
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e #v1: v2.x available
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: "Install CLI tools"
@@ -146,7 +146,7 @@ jobs:
         run: cp build/reports/coverage/api-tests/lcov.info api-lcov.info
       - name: "Upload API test coverage data"
         if: github.repository == 'juice-shop/juice-shop' && github.event_name == 'push' && matrix.os == 'ubuntu-latest' && matrix.node-version == '16'
-        uses: actions/upload-artifact@6673cd052c4cd6fcf4b4e6e60ea986c889389535 #v3: v3.0.0 available
+        uses: actions/upload-artifact@v4
         with:
           name: api-test-lcov
           path: |
@@ -157,13 +157,13 @@ jobs:
     if: github.repository == 'juice-shop/juice-shop' && github.event_name == 'push'
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Download unit test coverage data"
-        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 #v3: v3.0.0 available
+        uses: actions/download-artifact@v4
         with:
           name: unit-test-lcov
       - name: "Download API test coverage data"
-        uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 #v3: v3.0.0 available
+        uses: actions/download-artifact@v4
         with:
           name: api-test-lcov
       - name: "Publish coverage to Codeclimate"
@@ -183,9 +183,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Use Node.js 18"
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e #v1: v2.x available
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: "Install CLI tools"
@@ -219,9 +219,9 @@ jobs:
       fail-fast: false
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Use Node.js 18"
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e #v1: v2.x available
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: "Install CLI tools"
@@ -260,9 +260,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Use Node.js 18"
-        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e #v1: v2.x available
+        uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: "Install CLI tools"
@@ -294,7 +294,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Execute smoke test on Docker"
         run: docker-compose -f docker-compose.test.yml up --exit-code-from sut
   docker:
@@ -303,7 +303,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Check out Git repository"
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+        uses: actions/checkout@v4
       - name: "Set up QEMU"
         uses: docker/setup-qemu-action@27d0a4f181a40b142cce983c5393082c365d1480 #v1: V1.2.0 available
       - name: "Set up Docker Buildx"

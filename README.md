@@ -1,18 +1,16 @@
 # ![Juice Shop Logo](https://raw.githubusercontent.com/juice-shop/juice-shop/master/frontend/src/assets/public/images/JuiceShop_Logo_100px.png) OWASP Juice Shop
 
-[![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-48A646.svg)](https://owasp.org/projects/#sec-flagships)
-[![GitHub release](https://img.shields.io/github/release/juice-shop/juice-shop.svg)](https://github.com/juice-shop/juice-shop/releases/latest)
-[![Twitter Follow](https://img.shields.io/twitter/follow/owasp_juiceshop.svg?style=social&label=Follow)](https://twitter.com/owasp_juiceshop)
-[![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/owasp_juiceshop?style=social)](https://reddit.com/r/owasp_juiceshop)
+## This is NOT the genuine Juice Shop!
 
-![CI/CD Pipeline](https://github.com/juice-shop/juice-shop/workflows/CI/CD%20Pipeline/badge.svg?branch=master)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/6206c8f3972bcc97a033/test_coverage)](https://codeclimate.com/github/juice-shop/juice-shop/test_coverage)
-[![Maintainability](https://api.codeclimate.com/v1/badges/6206c8f3972bcc97a033/maintainability)](https://codeclimate.com/github/juice-shop/juice-shop/maintainability)
-[![Code Climate technical debt](https://img.shields.io/codeclimate/tech-debt/juice-shop/juice-shop)](https://codeclimate.com/github/juice-shop/juice-shop/trends/technical_debt)
-[![Cypress tests](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/3hrkhu/master&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/3hrkhu/runs)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/223/badge)](https://bestpractices.coreinfrastructure.org/projects/223)
-![GitHub stars](https://img.shields.io/github/stars/juice-shop/juice-shop.svg?label=GitHub%20%E2%98%85&style=flat)
-[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
+Please note, this is not the original OWASP Juice Shop repository.  Rather, this repository is a modified copy of [the actual OWASP Juice Shop repo](https://github.com/juice-shop/juice-shop), as it was at [version 15.0.0](https://github.com/juice-shop/juice-shop/tree/v15.0.0).  It was copied over for use in [a blog post series of mine](https://jamescooper.net.nz/series/deploying-then-securing-the-owasp-juice-shop/).  If you're looking for the accompaniment to that series, you're in the right place.  If you're looking for the actual OWASP Juice Shop project, you are in the wrong place.
+
+Furthermore, the vast majority of the work that has gone into this repo has been performed by other people.  I have just twiddled atop what they did.  As I understand it, by preserving the MIT license I am free to do this, but I make no claim to any sort of authorship, ownership or copyright of almost any of this stuff.  The changes I have made after copying the original repo can all be tracked via git commits, though.
+
+My thanks to Björn Kimminich and all other contributors for their excellent project, and OWASP for helping enable them to do it.
+
+Past this point, the README from the real Juice Shop has (mostly) been preserved as is.
+
+---
 
 > [The most trustworthy online shop out there.](https://twitter.com/dschadow/status/706781693504589824)
 > ([@dschadow](https://github.com/dschadow)) —

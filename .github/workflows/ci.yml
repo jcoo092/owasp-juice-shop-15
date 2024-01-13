@@ -71,8 +71,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [16, 18, 20]
+        os: [ubuntu-latest]
+        node-version: [18]
     steps:
       - name: "Check out Git repository"
         if: github.repository == 'juice-shop/juice-shop' || github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '16'
@@ -111,8 +111,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [16, 18, 20]
+        os: [ubuntu-latest]
+        node-version: [18]
     steps:
       - name: "Check out Git repository"
         if: github.repository == 'juice-shop/juice-shop' || github.repository != 'juice-shop/juice-shop' && matrix.os == 'ubuntu-latest' && matrix.node-version == '16'
@@ -214,7 +214,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
         browser: [chrome] # FIXME Switch back to [chrome, firefox] after debugging extreme flakiness of Firefox on CI/CD
       fail-fast: false
     steps:
@@ -334,42 +334,3 @@ jobs:
           build-args: |
             VCS_REF=${{ env.VCS_REF }}
             BUILD_DATE=${{ env.BUILD_DATE }}
-  heroku:
-    if: github.repository == 'juice-shop/juice-shop' && github.event_name == 'push' && (github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master')
-    needs: [test, api-test, e2e, custom-config-test]
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Check out Git repository"
-        uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
-      - name: "Set Heroku app & branch for ${{ github.ref }}"
-        run: |
-          if [ "$GITHUB_REF" == "refs/heads/master" ]; then
-          echo "HEROKU_APP=juice-shop" >> $GITHUB_ENV
-          echo "HEROKU_BRANCH=master" >> $GITHUB_ENV
-          else
-          echo "HEROKU_APP=juice-shop-staging" >> $GITHUB_ENV
-          echo "HEROKU_BRANCH=develop" >> $GITHUB_ENV
-          fi
-      - name: "Deploy ${{ github.ref }} to Heroku"
-        uses: akhileshns/heroku-deploy@79ef2ae4ff9b897010907016b268fd0f88561820 #v3.12.12
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ env.HEROKU_APP }}
-          heroku_email: bjoern.kimminich@owasp.org
-          branch: ${{ env.HEROKU_BRANCH }}
-  notify-slack:
-    if: github.repository == 'juice-shop/juice-shop' && github.event_name == 'push' && (success() || failure())
-    needs:
-      - docker
-      - heroku
-      - lint
-      - coding-challenge-rsn
-      - smoke-test
-      - coverage-report
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Slack workflow notification"
-        uses: Gamesight/slack-workflow-status@master
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}

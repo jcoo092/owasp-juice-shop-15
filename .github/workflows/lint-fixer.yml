@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: "Check out Git repository"
       uses: actions/checkout@v4
-    - name: "Use Node.js 14"
+    - name: "Use Node.js 18"
       uses: actions/setup-node@v4
       with:
         node-version: 18
@@ -21,7 +21,7 @@ jobs:
         npm install --ignore-scripts --legacy-peer-deps
     - name: "Fix everything which can be fixed"
       run: 'npm run lint:fix'
-    - uses: stefanzweifel/git-auto-commit-action@v4.0.0
+    - uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "Auto-fix linting issues"
         branch: ${{ github.head_ref }}
